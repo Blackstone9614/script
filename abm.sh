@@ -1,6 +1,7 @@
 #!/bin/sh
 
-#引数が２つかどうか確認
+#引数がいくつあるかをを確認
+
 if [ $# -eq 2 ]; then
  URL=$1
  FILENAME=$2
@@ -17,7 +18,7 @@ elif [ $# -eq 4 ]; then
  GASITU=$3
  HEIRETU=$4
 else
- echo "usage : abm.sh [Url] [outfilename] ([画質])"
+ echo "usage : abm.sh [Url] [outfilename] ([画質]) ([並列DL数])"
  exit 1;
 fi
 
