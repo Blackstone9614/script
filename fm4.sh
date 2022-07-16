@@ -10,22 +10,23 @@ if [ $# -eq 1 ]; then
  OUTPUTFILE=$1
 elif [ $# -eq 2 ]; then
  INPUTFILE=$1
- OUTFPUTILE=$2
+ OUTPUTILE=$2
 else
  echo "使い方…fm4.sh [IN] ([OUT])"
  exit 1;
 fi
 
-OUTFILEPATH=$HOME/storage/movies
+#出力・入力ディレクトリの指定
+FILEPATH=$HOME/storage/movies
 
 #ffmpegでのコンテナ替え
 #
-ffmpeg -i "${OUTFILEPATH}/${INPUTFILE}.ts" \
+ffmpeg -i "${FILEPATH}/${INPUTFILE}.ts" \
  -c copy \
  -movflags faststart \
- "${OUTFILEPATH}/${OUTPUTFILE}.mp4"
+ "${FILEPATH}/${OUTPUTFILE}.mp4"
 
 #tsファイルの削除
-rm "${OUTFILEPATH}/${OUTPUTFILE}.ts"
+rm "${FILEPATH}/${INPUTFILE}.ts"
 
 exit 0;
